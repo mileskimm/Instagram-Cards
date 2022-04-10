@@ -1,0 +1,80 @@
+body, html{
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif
+    
+}
+.card{
+    background:url(/instagram-logo.svg) no-repeat scroll 95% 2%, url(/heart.svg) no-repeat scroll 4% 94%;
+    border: 1px solid rgb(192, 189, 189);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 260px;
+    height: 100%;
+    display: block;
+    float: left;
+    margin: 20px;
+    padding: 10px;
+	max-width: 600px;
+}
+p#name{
+    display: inline;
+	font-weight:bold;
+    color: #262626;
+    position: relative;
+    bottom: 50px;
+    left: 78px;
+}
+p#date{
+    display: inline;
+    color: #262626;
+    position: relative;
+    bottom: 23px;
+    left: -13px;
+}
+p#caption{
+    box-shadow: 0 4px 8px 0 rgba(153, 145, 145, 0.2);
+    width: 400px;
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+
+}
+p#likes{
+    position: relative;
+    left: 20px;
+}
+#profile{
+    display: inline;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
+}
+button{
+    margin: 50px auto 0px;
+    display: block;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 4px;
+    background-color: #2196f3;
+    
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+@media all and (max-width:30em){
+    a.button1{
+    display:block;
+    margin:0.4em auto;
+    }}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+  <title>Cards</title>
+</head>
+
+<body>
+  <section class="section-center">
+    <div class="container">
+    </div>
+    
+  <button id="load-more">Load More</button>
+  </section>
+</body>
+
+
+<script>
+  // onload FUNCTION
+  window.onload = function(){
+    var currentCards1 = 0;
+    const elementList = [...document.getElementsByTagName('div')];
+    for(let i=currentCards1; i<4;i++){
+      if (elementList[i]) {
+        elementList[i].style.display = 'inline';
+        
+    }
+  }
+  currentCards1 += 4;
+}
+// BUTTON function
+var loadMoreBtn = document.getElementById('load-more');
+    var currentCards = 4;
+    loadMoreBtn.addEventListener("click", e);
+    function e(){
+      const elementList = [...document.getElementsByTagName('div')];
+      for (let i = currentCards; i < currentCards + 4; i++) {
+            if (elementList[i]) {
+                elementList[i].style.display = 'inline';
+    }
+  }
+    currentCards += 4;
+    if (currentCards >= elementList.length) {
+            event.target.style.display = 'none';
+        }
+      }
+
+
+
+  (async function () {
+    const fetchData = async () => {
+      const response = await fetch("data.json");
+      if (!response.ok) {
+        throw new Error();
+      }
+      const data = await response.json();
+      return data;
+    };
+
+    const container = document.querySelector(".container");
+    const cards = await fetchData();
+
+    const cardsHtml = cards.map((card) => {
+      const html = `
+      <div class="card">
+        <img src="${card.profile_image}" id="profile"><img/>
+        <p id="name">${card.name}</p>
+        <p id="date">${card.date}<p/>
+        <img src="${card.image}" alt="" />
+        <p id="caption">${card.caption}<p/>
+        <p id="likes">${card.likes}<p/>
+      </div>
+    `;
+      return html;
+    });
+
+    container.innerHTML = cardsHtml.join("");
+  })();
+
+</script>
+
+</html>
